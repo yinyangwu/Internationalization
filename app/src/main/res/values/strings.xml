@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">KotlinDemo</string>
+    <string name="app_name">科特林</string>
+    <string name="test1">测试1</string>
+    <string name="test2">测试2</string>
+    <string name="test3">测试3</string>
+    <string name="test4">测试4</string>
 </resources>
