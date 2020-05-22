@@ -25,3 +25,17 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ext {
+    compileSdkVersion = 29
+    buildToolsVersion = '29.0.3'
+    applicationId = 'com.youngwu.internationalization'
+    minSdkVersion = 19
+    targetSdkVersion = 29
+    versionCode = 2
+    versionName = '1.0.1'
+    key_file = '../keystore/youngwu.jks'
+    key_alias = 'youngwu'
+    store_password = '12345678aa'
+    key_password = '12345678aa'
+}

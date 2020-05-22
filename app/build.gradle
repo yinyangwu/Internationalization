@@ -4,21 +4,40 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'multi-languages'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        applicationId "com.youngwu.internationalization"
-        minSdkVersion 19
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        applicationId rootProject.ext.applicationId
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+        multiDexEnabled true
+
+        //打包语言，减少包体积，指定语言只使用中文、英文、繁体，注意英文是默认语言，可以不写，resConfigs()已过时
+        resConfigs 'zh-rCN', 'zh-rTW'
+    }
+
+    signingConfigs {
+        release {
+            keyAlias rootProject.ext.key_alias
+            keyPassword rootProject.ext.key_password
+            storeFile file(rootProject.ext.key_file)
+            storePassword rootProject.ext.store_password
+        }
     }
 
     buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
 
