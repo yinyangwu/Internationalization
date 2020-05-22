@@ -6,10 +6,20 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/tv_system_language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="@string/system_language"
+        android:textColor="#333333"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tv_user_select_language"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
-        android:text="@string/home_index"
+        android:text="@string/user_select_language"
         android:textColor="#333333"
         android:textSize="16sp" />
 
@@ -18,6 +28,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/multi_language"
+        android:textAllCaps="false" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_start_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_service"
+        android:textAllCaps="false" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_start_intent_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_intent_service"
         android:textAllCaps="false" />
 
     <androidx.appcompat.widget.AppCompatButton

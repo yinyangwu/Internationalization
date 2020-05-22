@@ -18,6 +18,7 @@ class SettingActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_setting)
+        title = getString(R.string.setting)
 
         btn_auto.setOnClickListener(this)
         btn_Chinese_simple.setOnClickListener(this)

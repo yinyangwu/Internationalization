@@ -16,6 +16,7 @@ class MultiLanguageActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_multi_language)
+        title = getString(R.string.multi_language)
 
         btn_finish.setOnClickListener(this)
     }
