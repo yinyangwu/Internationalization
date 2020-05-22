@@ -5,26 +5,33 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:text="@string/home_index"
-        android:textColor="#333333"
-        android:textSize="16sp" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_multi_language"
+        android:id="@+id/btn_auto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/multi_language"
+        android:text="@string/auto"
         android:textAllCaps="false" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_setting"
+        android:id="@+id/btn_Chinese_simple"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/setting"
+        android:text="@string/Chinese_simple"
+        android:textAllCaps="false" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_Chinese_traditional"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Chinese_traditional"
+        android:textAllCaps="false" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_English"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/English"
         android:textAllCaps="false" />
 
     <androidx.appcompat.widget.AppCompatButton

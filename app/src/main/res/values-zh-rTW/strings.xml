@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">科特林</string>
-    <string name="test1">測試1</string>
-    <string name="test2">測試2</string>
-    <string name="test3">測試3</string>
-    <string name="test4">測試4</string>
+    <string name="app_name">國際化</string>
+    <string name="home_index">首頁</string>
+    <string name="multi_language">多語言</string>
+    <string name="setting">設置</string>
+    <string name="test_text">當您發送包含特定遞送選項的消息時，請使用針對具體平臺的字段進行設置。 您可以視需要為每個平臺指定不同的值。但是，即使您想為各種平臺設置本質上相同的值，也必須使用針對具體平臺的字段。這是因為每種平臺對值的解讀方式可能會略有不同 - 例如，存留時間在 Android 上設置為以秒為單位的到期時間，而在 iOS 上則設置為到期日期。</string>
+    <string name="auto">自動</string>
+    <string name="Chinese_simple">中文简体</string>
+    <string name="Chinese_traditional">中文繁體</string>
+    <string name="English">English</string>
+    <string name="finish">退出</string>
 </resources>
