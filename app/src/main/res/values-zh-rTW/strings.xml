@@ -7,6 +7,7 @@
     <string name="multi_language">多語言</string>
     <string name="start_service">啟動Service</string>
     <string name="start_intent_service">啟動IntentService</string>
+    <string name="show_dialog">顯示對話框</string>
     <string name="setting">設置</string>
     <string name="test_text">當您發送包含特定遞送選項的消息時，請使用針對具體平臺的字段進行設置。 您可以視需要為每個平臺指定不同的值。但是，即使您想為各種平臺設置本質上相同的值，也必須使用針對具體平臺的字段。這是因為每種平臺對值的解讀方式可能會略有不同 - 例如，存留時間在 Android 上設置為以秒為單位的到期時間，而在 iOS 上則設置為到期日期。</string>
     <string name="auto">自動</string>
@@ -16,4 +17,6 @@
     <string name="finish">退出</string>
     <string name="service_create">已創建service</string>
     <string name="intent_service_create">已創建IntentService</string>
+    <string name="ok">確定</string>
+    <string name="cancel">取消</string>
 </resources>

@@ -1,8 +1,10 @@
 package com.youngwu.internationalization.activity
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.youngwu.internationalization.R
 import com.youngwu.internationalization.service.MyIntentService
@@ -41,6 +43,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btn_multi_language.setOnClickListener(this)
         btn_start_service.setOnClickListener(this)
         btn_start_intent_service.setOnClickListener(this)
+        btn_show_dialog.setOnClickListener(this)
         btn_setting.setOnClickListener(this)
         btn_finish.setOnClickListener(this)
     }
@@ -61,6 +64,24 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btn_start_intent_service -> {
                 val intent = Intent(this, MyIntentService::class.java)
                 startService(intent)
+            }
+            R.id.btn_show_dialog -> {
+                val builder = AlertDialog.Builder(this)
+                builder.setPositiveButton(
+                    getString(R.string.ok),
+                    object : DialogInterface.OnClickListener {
+                        override fun onClick(dialog: DialogInterface?, which: Int) {
+                            dialog?.dismiss()
+                        }
+                    })
+                builder.setNegativeButton(
+                    R.string.cancel,
+                    object : DialogInterface.OnClickListener {
+                        override fun onClick(dialog: DialogInterface?, which: Int) {
+                            dialog?.dismiss()
+                        }
+                    })
+                builder.create().show()
             }
             R.id.btn_setting -> {
                 val intent = Intent(this, SettingActivity::class.java)
