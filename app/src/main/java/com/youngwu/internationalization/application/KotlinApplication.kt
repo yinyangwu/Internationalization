@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.res.Configuration
 import com.github.jokar.multilanguages.library.MultiLanguage
 import com.youngwu.internationalization.util.LocaleManageUtil
+import com.youngwu.internationalization.util.SPUtil
 
 /**
  * @author yinyangwu
@@ -13,20 +14,21 @@ import com.youngwu.internationalization.util.LocaleManageUtil
  */
 class KotlinApplication : Application() {
 
-    override fun attachBaseContext(base: Context?) {
+    override fun attachBaseContext(base: Context) {
         LocaleManageUtil.saveSystemCurrentLanguage(base)
         super.attachBaseContext(MultiLanguage.setLocal(base))
     }
 
     override fun onCreate() {
         super.onCreate()
-        MultiLanguage.init { LocaleManageUtil.getSetLanguageLocale(it) }
+        SPUtil.init(this)
+        MultiLanguage.init { LocaleManageUtil.getSelectLanguageLocale(it) }
         MultiLanguage.setApplicationLanguage(this)
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
-        LocaleManageUtil.saveSystemCurrentLanguage(applicationContext, newConfig)
+        LocaleManageUtil.saveSystemCurrentLanguage(newConfig)
         MultiLanguage.onConfigurationChanged(applicationContext)
     }
 }

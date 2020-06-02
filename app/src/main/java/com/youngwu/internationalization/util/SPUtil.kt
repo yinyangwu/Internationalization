@@ -2,36 +2,31 @@ package com.youngwu.internationalization.util
 
 import android.content.Context
 import android.content.SharedPreferences
-import java.util.*
 
-class SPUtil(context: Context) {
-    private val mSharedPreferences: SharedPreferences =
-        context.getSharedPreferences("language_setting", Context.MODE_PRIVATE)
-    var systemCurrentLocal: Locale = Locale.ENGLISH
-    val selectLanguage: Int
-        get() = mSharedPreferences.getInt(TAG_LANGUAGE, 0)
+object SPUtil {
+    private const val SP_NAME = "language_setting"
+    private lateinit var context: Context
+    private lateinit var mSharedPreferences: SharedPreferences
 
-    companion object {
-        private const val TAG_LANGUAGE = "language_select"
-
-        @Volatile
-        private var instance: SPUtil? = null
-
-        fun getInstance(context: Context): SPUtil? {
-            if (instance == null) {
-                synchronized(SPUtil::class.java) {
-                    if (instance == null) {
-                        instance = SPUtil(context)
-                    }
-                }
-            }
-            return instance
-        }
+    fun init(context: Context) {
+        this.context = context
+        mSharedPreferences = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE)
     }
 
-    fun saveLanguage(select: Int) {
-        val edit = mSharedPreferences.edit()
-        edit.putInt(TAG_LANGUAGE, select)
-        edit.apply()
+    fun putInt(param: String, value: Int) {
+        mSharedPreferences.edit().putInt(param, value).apply()
     }
+
+    fun getInt(param: String, default: Int): Int? {
+        return mSharedPreferences.getInt(param, default)
+    }
+
+    fun putBoolean(param: String, value: Boolean) {
+        mSharedPreferences.edit().putBoolean(param, value).apply()
+    }
+
+    fun getBoolean(param: String, default: Boolean): Boolean? {
+        return mSharedPreferences.getBoolean(param, default)
+    }
+
 }

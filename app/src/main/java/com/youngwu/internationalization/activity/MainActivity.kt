@@ -31,11 +31,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private fun initData() {
         tv_system_language.text = getString(
             R.string.system_language,
-            LocaleManageUtil.getSystemLocale(this).displayLanguage
+            LocaleManageUtil.getSystemLocale().toLanguageTag()
         )
         tv_user_select_language.text = getString(
             R.string.user_select_language,
-            LocaleManageUtil.getSelectLanguage(this)
+            LocaleManageUtil.getSelectLanguageLocale(this).toLanguageTag()
         )
     }
 

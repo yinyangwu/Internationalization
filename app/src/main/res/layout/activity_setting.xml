@@ -5,12 +5,11 @@
     android:gravity="center"
     android:orientation="vertical">
 
-
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_auto"
+        android:id="@+id/btn_Chinese_traditional"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/auto"
+        android:text="@string/Chinese_traditional"
         android:textAllCaps="false" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -18,13 +17,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Chinese_simple"
-        android:textAllCaps="false" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_Chinese_traditional"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Chinese_traditional"
         android:textAllCaps="false" />
 
     <androidx.appcompat.widget.AppCompatButton

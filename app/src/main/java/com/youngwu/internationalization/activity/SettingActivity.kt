@@ -20,9 +20,8 @@ class SettingActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_setting)
         title = getString(R.string.setting)
 
-        btn_auto.setOnClickListener(this)
-        btn_Chinese_simple.setOnClickListener(this)
         btn_Chinese_traditional.setOnClickListener(this)
+        btn_Chinese_simple.setOnClickListener(this)
         btn_English.setOnClickListener(this)
         btn_finish.setOnClickListener(this)
     }
@@ -32,17 +31,14 @@ class SettingActivity : AppCompatActivity(), View.OnClickListener {
             return
         }
         when (v.id) {
-            R.id.btn_auto -> {
-                selectLanguage(0)
+            R.id.btn_Chinese_traditional -> {
+                selectLanguage(LocaleManageUtil.TYPE_TRADITION_CHINESE)
             }
             R.id.btn_Chinese_simple -> {
-                selectLanguage(1)
-            }
-            R.id.btn_Chinese_traditional -> {
-                selectLanguage(2)
+                selectLanguage(LocaleManageUtil.TYPE_SIMPLE_CHINESE)
             }
             R.id.btn_English -> {
-                selectLanguage(3)
+                selectLanguage(LocaleManageUtil.TYPE_ENGLISH)
             }
             R.id.btn_finish -> {
                 finish()
@@ -51,7 +47,7 @@ class SettingActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun selectLanguage(select: Int) {
-        LocaleManageUtil.saveSelectLanguage(this, select)
+        LocaleManageUtil.saveSelectLanguageType(this, select)
         val intent = Intent(this, MainActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
