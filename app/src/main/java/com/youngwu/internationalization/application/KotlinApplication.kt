@@ -21,6 +21,9 @@ class KotlinApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        //下面这行是测试代码，故意延迟onCreate()方法的执行时长，就会体现出两个主题切换的过程
+        Thread.sleep(2500)
+
         SPUtil.init(this)
         MultiLanguage.init { LocaleManageUtil.getSelectLanguageLocale(it) }
         MultiLanguage.setApplicationLanguage(this)

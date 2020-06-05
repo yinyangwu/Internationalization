@@ -12,6 +12,7 @@
         <activity
             android:name="com.youngwu.internationalization.activity.MainActivity"
             android:launchMode="singleTask"
+            android:theme="@style/SplashTheme"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
