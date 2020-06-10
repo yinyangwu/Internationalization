@@ -17,4 +17,5 @@
     <string name="intent_service_create">created IntentService</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
+    <string name="set_text_by_code">set text by code</string>
 </resources>

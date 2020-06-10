@@ -12,7 +12,15 @@ import com.youngwu.internationalization.util.SPUtil
  * @date 2020/5/21 11:11
  * description:
  */
-class KotlinApplication : Application() {
+class KotlinApplication : Application {
+
+    companion object {
+        lateinit var application: Application
+    }
+
+    constructor() {
+        application = this
+    }
 
     override fun attachBaseContext(base: Context) {
         LocaleManageUtil.saveSystemCurrentLanguage(base)
@@ -21,9 +29,6 @@ class KotlinApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        //下面这行是测试代码，故意延迟onCreate()方法的执行时长，就会体现出两个主题切换的过程
-        Thread.sleep(2500)
-
         SPUtil.init(this)
         MultiLanguage.init { LocaleManageUtil.getSelectLanguageLocale(it) }
         MultiLanguage.setApplicationLanguage(this)
