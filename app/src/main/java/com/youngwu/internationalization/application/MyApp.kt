@@ -11,10 +11,14 @@ import com.youngwu.internationalization.util.LocaleManageUtil
  * @date 2020/5/21 11:11
  * description:
  */
-class KotlinApplication : Application() {
+class MyApp : Application() {
 
     companion object {
         lateinit var application: Application
+
+        fun getContext(): Application {
+            return application
+        }
     }
 
     override fun attachBaseContext(base: Context) {

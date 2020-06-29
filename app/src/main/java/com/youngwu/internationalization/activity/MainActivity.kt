@@ -7,7 +7,7 @@ import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.youngwu.internationalization.R
-import com.youngwu.internationalization.application.KotlinApplication
+import com.youngwu.internationalization.application.MyApp
 import com.youngwu.internationalization.service.MyIntentService
 import com.youngwu.internationalization.service.MyService
 import com.youngwu.internationalization.util.LocaleManageUtil
@@ -40,8 +40,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         )
         tv_set_text_by_code1.text = getString(R.string.set_text_by_code)
         tv_set_text_by_code2.text = applicationContext.getString(R.string.set_text_by_code)
-        tv_set_text_by_code3.text = KotlinApplication.application.getString(R.string.set_text_by_code)
-        tv_set_text_by_code4.text = KotlinApplication.application.applicationContext.getString(R.string.set_text_by_code)
+        tv_set_text_by_code3.text = MyApp.getContext().getString(R.string.set_text_by_code)
+        tv_set_text_by_code4.text = MyApp.getContext().applicationContext.getString(R.string.set_text_by_code)
     }
 
     private fun setListener() {
