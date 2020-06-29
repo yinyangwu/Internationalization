@@ -9,21 +9,18 @@
         android:id="@+id/btn_Chinese_traditional"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Chinese_traditional"
         android:textAllCaps="false" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_Chinese_simple"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Chinese_simple"
         android:textAllCaps="false" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_English"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/English"
         android:textAllCaps="false" />
 
     <androidx.appcompat.widget.AppCompatButton

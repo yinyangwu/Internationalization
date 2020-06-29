@@ -10,9 +10,6 @@
     <string name="show_dialog">显示对话框</string>
     <string name="setting">设置</string>
     <string name="test_text">当您发送包含特定递送选项的消息时，请使用针对具体平台的字段进行设置。 您可以视需要为每个平台指定不同的值。但是，即使您想为各种平台设置本质上相同的值，也必须使用针对具体平台的字段。这是因为每种平台对值的解读方式可能会略有不同 - 例如，存留时间在 Android 上设置为以秒为单位的到期时间，而在 iOS 上则设置为到期日期。</string>
-    <string name="Chinese_simple">中文简体</string>
-    <string name="Chinese_traditional">中文繁體</string>
-    <string name="English">English</string>
     <string name="finish">退出</string>
     <string name="service_create">已创建service</string>
     <string name="intent_service_create">已创建IntentService</string>

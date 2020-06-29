@@ -20,6 +20,10 @@ class SettingActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_setting)
         title = getString(R.string.setting)
 
+        btn_Chinese_traditional.text = LocaleManageUtil.LANGUAGE_TRADITION_CHINESE
+        btn_Chinese_simple.text = LocaleManageUtil.LANGUAGE_SIMPLE_CHINESE
+        btn_English.text = LocaleManageUtil.LANGUAGE_ENGLISH
+
         btn_Chinese_traditional.setOnClickListener(this)
         btn_Chinese_simple.setOnClickListener(this)
         btn_English.setOnClickListener(this)
@@ -48,6 +52,7 @@ class SettingActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun selectLanguage(select: Int) {
         LocaleManageUtil.saveSelectLanguageType(this, select)
+        LocaleManageUtil.setApplicationLanguage(this)
         val intent = Intent(this, MainActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)

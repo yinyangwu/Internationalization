@@ -9,9 +9,6 @@
     <string name="show_dialog">Show Dialog</string>
     <string name="setting">Setting</string>
     <string name="test_text">When you are sending messages with specific delivery options, use platform-specific fields to set them. You can specify different values per platform if you want. However, even when you want to set essentially the same value across platforms, you must use platform-specific fields. This is because each platform may interpret the value slightly differently—for example, time-to-live is set on Android as an expiration time in seconds, while on iOS it is set as an expiration date.</string>
-    <string name="Chinese_simple">中文简体</string>
-    <string name="Chinese_traditional">中文繁體</string>
-    <string name="English">English</string>
     <string name="finish">Finish</string>
     <string name="service_create">created service</string>
     <string name="intent_service_create">created IntentService</string>

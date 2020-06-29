@@ -5,28 +5,25 @@ import android.content.SharedPreferences
 
 object SPUtil {
     private const val SP_NAME = "language_setting"
-    private lateinit var context: Context
-    private lateinit var mSharedPreferences: SharedPreferences
 
-    fun init(context: Context) {
-        this.context = context
-        mSharedPreferences = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE)
+    private fun getSharedPreferences(context: Context): SharedPreferences {
+        return context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE)
     }
 
-    fun putInt(param: String, value: Int) {
-        mSharedPreferences.edit().putInt(param, value).apply()
+    fun putInt(context: Context, param: String, value: Int) {
+        getSharedPreferences(context).edit().putInt(param, value).apply()
     }
 
-    fun getInt(param: String, default: Int): Int? {
-        return mSharedPreferences.getInt(param, default)
+    fun getInt(context: Context, param: String, default: Int): Int {
+        return getSharedPreferences(context).getInt(param, default)
     }
 
-    fun putBoolean(param: String, value: Boolean) {
-        mSharedPreferences.edit().putBoolean(param, value).apply()
+    fun putBoolean(context: Context, param: String, value: Boolean) {
+        getSharedPreferences(context).edit().putBoolean(param, value).apply()
     }
 
-    fun getBoolean(param: String, default: Boolean): Boolean? {
-        return mSharedPreferences.getBoolean(param, default)
+    fun getBoolean(context: Context, param: String, default: Boolean): Boolean {
+        return getSharedPreferences(context).getBoolean(param, default)
     }
 
 }
