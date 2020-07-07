@@ -12,8 +12,8 @@
         <activity
             android:name="com.youngwu.internationalization.activity.MainActivity"
             android:launchMode="singleTask"
-            android:theme="@style/SplashTheme"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -24,10 +24,10 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".activity.MultiLanguageActivity"
+            android:name="com.youngwu.internationalization.activity.MultiLanguageActivity"
             android:screenOrientation="portrait" />
 
-        <service android:name=".service.MyService" />
-        <service android:name=".service.MyIntentService" />
+        <service android:name="com.youngwu.internationalization.service.MyService" />
+        <service android:name="com.youngwu.internationalization.service.MyIntentService" />
     </application>
 </manifest>

@@ -1,12 +1,11 @@
 buildscript {
-    ext.kotlin_version = '1.3.72'
     repositories {
         google()
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.0.0'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.android.tools.build:gradle:3.5.3'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$KOTLIN_VERSION"
         classpath 'com.github.jokar:multi-languages.plugin:0.1.0'
     }
 }
@@ -18,20 +17,10 @@ allprojects {
     }
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+ext {
+    globalConfigPath = "${rootDir}/global_config.gradle"
 }
 
-ext {
-    compileSdkVersion = 29
-    buildToolsVersion = '29.0.3'
-    applicationId = 'com.youngwu.internationalization'
-    minSdkVersion = 21
-    targetSdkVersion = 29
-    versionCode = 2
-    versionName = '1.0.1'
-    key_file = '../keystore/youngwu.jks'
-    key_alias = 'youngwu'
-    store_password = '12345678aa'
-    key_password = '12345678aa'
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }

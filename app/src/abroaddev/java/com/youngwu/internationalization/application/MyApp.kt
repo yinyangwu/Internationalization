@@ -3,7 +3,9 @@ package com.youngwu.internationalization.application
 import android.app.Application
 import android.content.Context
 import android.content.res.Configuration
+import android.widget.Toast
 import com.github.jokar.multilanguages.library.LanguageLocalListener
+import com.youngwu.internationalization.R
 import com.youngwu.internationalization.util.LocaleManageUtil
 
 /**
@@ -35,6 +37,7 @@ class MyApp : Application() {
         super.onCreate()
         application = this
         LocaleManageUtil.setApplicationLanguage(this)
+        Toast.makeText(this, "1" + getString(R.string.test_name), Toast.LENGTH_LONG).show()
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
