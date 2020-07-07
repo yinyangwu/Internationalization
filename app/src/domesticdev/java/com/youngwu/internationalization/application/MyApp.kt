@@ -7,6 +7,8 @@ import android.widget.Toast
 import com.github.jokar.multilanguages.library.LanguageLocalListener
 import com.youngwu.internationalization.R
 import com.youngwu.internationalization.util.LocaleManageUtil
+import com.youngwu.kotlin.mylibrary.ChannelTest
+import com.youngwu.kotlin.mylibrary.MyTest
 
 /**
  * @author yinyangwu
@@ -37,7 +39,12 @@ class MyApp : Application() {
         super.onCreate()
         application = this
         LocaleManageUtil.setApplicationLanguage(this)
-        Toast.makeText(this, "3" + getString(R.string.test_name), Toast.LENGTH_LONG).show()
+        Toast.makeText(
+            this,
+            "3 " + getString(R.string.test_name) + " " + MyTest.getTestContent() + " " +
+                    ChannelTest.getTestContent(this),
+            Toast.LENGTH_LONG
+        ).show()
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {

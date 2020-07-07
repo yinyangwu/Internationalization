@@ -8,10 +8,15 @@ android {
     buildToolsVersion BUILD_TOOLS_VERSION
 
     defaultConfig {
+        if (project.plugins.hasPlugin('com.android.application')) {
+            applicationId PROD_APPLICATION_ID
+        }
         minSdkVersion MIN_SDK_VERSION.toInteger()
         targetSdkVersion TARGET_SDK_VERSION.toInteger()
         versionCode VERSION_CODE.toInteger()
         versionName VERSION_NAME
+
+        multiDexEnabled true
 
         ndk {
             abiFilters "armeabi-v7a", "arm64-v8a"
@@ -22,6 +27,21 @@ android {
 
         vectorDrawables.useSupportLibrary = true
 
+        signingConfigs {
+            abroad {
+                keyAlias KEY_ALIAS
+                keyPassword KEY_PASSWORD
+                storeFile file(STORE_FILE)
+                storePassword STORE_PASSWORD
+            }
+            domestic {
+                keyAlias KEY_ALIAS
+                keyPassword KEY_PASSWORD
+                storeFile file(STORE_FILE)
+                storePassword STORE_PASSWORD
+            }
+        }
+
         sourceSets {
             main {
                 jniLibs.srcDirs = ['libs']
@@ -30,6 +50,74 @@ android {
                 res.srcDirs = ['src/main/res']
                 assets.srcDirs = ['src/main/assets']
             }
+            abroaddev {
+                manifest.srcFile 'src/abroaddev/AndroidManifest.xml'
+                java.srcDirs 'src/abroaddev/java'
+                res.srcDirs 'src/abroaddev/res'
+            }
+            abroadprod {
+                manifest.srcFile 'src/abroadprod/AndroidManifest.xml'
+                java.srcDirs 'src/abroadprod/java'
+                res.srcDirs 'src/abroadprod/res'
+            }
+            domesticdev {
+                manifest.srcFile 'src/domesticdev/AndroidManifest.xml'
+                java.srcDirs 'src/domesticdev/java'
+                res.srcDirs 'src/domesticdev/res'
+            }
+            domesticprod {
+                manifest.srcFile 'src/domesticprod/AndroidManifest.xml'
+                java.srcDirs 'src/domesticprod/java'
+                res.srcDirs 'src/domesticprod/res'
+            }
+        }
+
+        flavorDimensions 'PACKAGE'
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    productFlavors {
+        abroaddev {
+            dimension = 'PACKAGE'
+            if (project.plugins.hasPlugin('com.android.application')) {
+                applicationId DEV_APPLICATION_ID
+            }
+            signingConfig signingConfigs.abroad
+            buildConfigField 'String', 'FLAVOR_NAME', '\"abroad\"'
+        }
+        abroadprod {
+            dimension = 'PACKAGE'
+            if (project.plugins.hasPlugin('com.android.application')) {
+                applicationId PROD_APPLICATION_ID
+            }
+            signingConfig signingConfigs.abroad
+            buildConfigField 'String', 'FLAVOR_NAME', '\"abroad\"'
+        }
+        domesticdev {
+            dimension = 'PACKAGE'
+            if (project.plugins.hasPlugin('com.android.application')) {
+                applicationId DEV_APPLICATION_ID
+            }
+            signingConfig signingConfigs.domestic
+            buildConfigField 'String', 'FLAVOR_NAME', '\"domestic\"'
+        }
+        domesticprod {
+            dimension = 'PACKAGE'
+            if (project.plugins.hasPlugin('com.android.application')) {
+                applicationId PROD_APPLICATION_ID
+            }
+            signingConfig signingConfigs.domestic
+            buildConfigField 'String', 'FLAVOR_NAME', '\"domestic\"'
         }
     }
 

@@ -1,3 +1,4 @@
-include ':mylibrary'
 rootProject.name='InternationalizationDemo'
 include ':app'
+include ':mylibrary'
+include ':mylibrary2'

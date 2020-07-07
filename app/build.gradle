@@ -2,93 +2,6 @@ apply plugin: 'com.android.application'
 apply plugin: 'multi-languages'
 apply from: rootProject.ext.globalConfigPath
 
-android {
-
-    defaultConfig {
-        applicationId PROD_APPLICATION_ID
-
-        multiDexEnabled true
-
-        signingConfigs {
-            abroad {
-                keyAlias KEY_ALIAS
-                keyPassword KEY_PASSWORD
-                storeFile file(STORE_FILE)
-                storePassword STORE_PASSWORD
-            }
-            domestic {
-                keyAlias KEY_ALIAS
-                keyPassword KEY_PASSWORD
-                storeFile file(STORE_FILE)
-                storePassword STORE_PASSWORD
-            }
-        }
-
-        sourceSets {
-            abroaddev {
-                manifest.srcFile 'src/abroaddev/AndroidManifest.xml'
-                java.srcDirs 'src/abroaddev/java'
-                res.srcDirs 'src/abroaddev/res'
-            }
-            abroadprod {
-                manifest.srcFile 'src/abroadprod/AndroidManifest.xml'
-                java.srcDirs 'src/abroadprod/java'
-                res.srcDirs 'src/abroadprod/res'
-            }
-            domesticdev {
-                manifest.srcFile 'src/domesticdev/AndroidManifest.xml'
-                java.srcDirs 'src/domesticdev/java'
-                res.srcDirs 'src/domesticdev/res'
-            }
-            domesticprod {
-                manifest.srcFile 'src/domesticprod/AndroidManifest.xml'
-                java.srcDirs 'src/domesticprod/java'
-                res.srcDirs 'src/domesticprod/res'
-            }
-        }
-
-        flavorDimensions 'PACKAGE'
-    }
-
-    buildTypes {
-        debug {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-
-    productFlavors {
-        abroaddev {
-            dimension = 'PACKAGE'
-            applicationId DEV_APPLICATION_ID
-            signingConfig signingConfigs.abroad
-            buildConfigField 'String', 'FLAVOR_NAME', '\"abroad\"'
-        }
-        abroadprod {
-            dimension = 'PACKAGE'
-            applicationId PROD_APPLICATION_ID
-            signingConfig signingConfigs.abroad
-            buildConfigField 'String', 'FLAVOR_NAME', '\"abroad\"'
-        }
-        domesticdev {
-            dimension = 'PACKAGE'
-            applicationId DEV_APPLICATION_ID
-            signingConfig signingConfigs.domestic
-            buildConfigField 'String', 'FLAVOR_NAME', '\"domestic\"'
-        }
-        domesticprod {
-            dimension = 'PACKAGE'
-            applicationId PROD_APPLICATION_ID
-            signingConfig signingConfigs.domestic
-            buildConfigField 'String', 'FLAVOR_NAME', '\"domestic\"'
-        }
-    }
-}
-
 multiLanguages {
     enable = true
 }
@@ -97,4 +10,5 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'com.github.jokar:multi-languages:0.0.8'
     implementation project(':mylibrary')
+    implementation project(':mylibrary2')
 }

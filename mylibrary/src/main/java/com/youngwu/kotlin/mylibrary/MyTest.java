@@ -5,5 +5,9 @@ package com.youngwu.kotlin.mylibrary;
  * @date 2020/7/7 10:08
  * description:
  */
-class MyTest {
+public class MyTest {
+
+    public static String getTestContent() {
+        return "MyTest";
+    }
 }
